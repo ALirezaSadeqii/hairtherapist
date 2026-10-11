@@ -220,17 +220,17 @@ export default function AdminDashboardPage() {
     <div className="min-h-screen bg-[#FAF6F3] flex flex-col text-start">
       {/* Admin Top Navigation */}
       <header className="sticky top-0 z-40 border-b border-[#EAE0DA] bg-[#FAF6F3]/90 backdrop-blur-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <span className="font-serif font-bold text-base sm:text-xl text-[#2A211D] tracking-wider uppercase">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-2">
+          <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+            <span className="font-serif font-bold text-sm sm:text-xl text-[#2A211D] tracking-wider uppercase whitespace-nowrap truncate max-w-[180px] sm:max-w-none">
               {t.common.brandName}
             </span>
-            <span className="text-[11px] px-2 py-0.5 rounded bg-[#F7EBE7] text-[#965B50] border border-[#EED7D1] font-medium hidden sm:inline">
+            <span className="text-[11px] px-2 py-0.5 rounded bg-[#F7EBE7] text-[#965B50] border border-[#EED7D1] font-medium hidden sm:inline whitespace-nowrap">
               {t.common.adminDashboard}
             </span>
           </div>
 
-          <div className="flex items-center gap-3 sm:gap-5">
+          <div className="flex items-center gap-2 sm:gap-5 shrink-0">
             {adminProfile && (
               <span className="text-xs text-[#94847E] hidden md:inline">
                 {t.adminDashboard.welcomePrefix}{' '}
@@ -238,7 +238,7 @@ export default function AdminDashboardPage() {
               </span>
             )}
 
-            <LanguageSwitcher />
+            <LanguageSwitcher className="scale-90 origin-right" />
 
             <Button
               variant="secondary"

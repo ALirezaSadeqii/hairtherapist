@@ -74,6 +74,7 @@ export interface Translations {
     emailError: string;
     phoneLabel: string;
     phonePlaceholder: string;
+    phoneError: string;
     submitButton: string;
     submitting: string;
     conflictError: string;

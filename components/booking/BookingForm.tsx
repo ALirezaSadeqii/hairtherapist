@@ -24,13 +24,29 @@ export function BookingForm({ selectedDate, onSuccess, onConflict }: BookingForm
 
   const [nameError, setNameError] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [phoneError, setPhoneError] = useState('');
   const [submitError, setSubmitError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Helper to format raw phone input into '523 434 1223'
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const raw = e.target.value;
+    const digits = raw.replace(/\D/g, '').slice(0, 10);
+    let formatted = digits;
+    if (digits.length > 6) {
+      formatted = `${digits.slice(0, 3)} ${digits.slice(3, 6)} ${digits.slice(6)}`;
+    } else if (digits.length > 3) {
+      formatted = `${digits.slice(0, 3)} ${digits.slice(3)}`;
+    }
+    setPhone(formatted);
+    if (phoneError) setPhoneError('');
+  };
 
   const validate = (): boolean => {
     let isValid = true;
     setNameError('');
     setEmailError('');
+    setPhoneError('');
     setSubmitError(null);
 
     const trimmedName = customerName.trim();
@@ -39,11 +55,20 @@ export function BookingForm({ selectedDate, onSuccess, onConflict }: BookingForm
       isValid = false;
     }
 
-    const trimmedEmail = email.trim();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!trimmedEmail || !emailRegex.test(trimmedEmail) || trimmedEmail.length > 255) {
-      setEmailError(t.booking.emailError);
+    const trimmedPhone = phone.trim();
+    const phoneRegex = /^\d{3} \d{3} \d{4}$/;
+    if (!trimmedPhone || !phoneRegex.test(trimmedPhone)) {
+      setPhoneError(t.booking.phoneError);
       isValid = false;
+    }
+
+    const trimmedEmail = email.trim();
+    if (trimmedEmail) {
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(trimmedEmail) || trimmedEmail.length > 255) {
+        setEmailError(t.booking.emailError);
+        isValid = false;
+      }
     }
 
     return isValid;
@@ -59,8 +84,8 @@ export function BookingForm({ selectedDate, onSuccess, onConflict }: BookingForm
     try {
       const response = await createAppointment({
         customerName: customerName.trim(),
-        email: email.trim().toLowerCase(),
-        phone: phone.trim() ? phone.trim() : null,
+        email: email.trim() ? email.trim().toLowerCase() : null,
+        phone: phone.trim(),
         date: selectedDate,
       });
 
@@ -117,7 +142,20 @@ export function BookingForm({ selectedDate, onSuccess, onConflict }: BookingForm
           disabled={isSubmitting}
         />
 
-        {/* Email Address */}
+        {/* Mandatory Phone Number */}
+        <Input
+          label={t.booking.phoneLabel}
+          type="tel"
+          placeholder={t.booking.phonePlaceholder}
+          value={phone}
+          onChange={handlePhoneChange}
+          error={phoneError}
+          required
+          maxLength={12}
+          disabled={isSubmitting}
+        />
+
+        {/* Optional Email Address */}
         <Input
           label={t.booking.emailLabel}
           type="email"
@@ -128,19 +166,7 @@ export function BookingForm({ selectedDate, onSuccess, onConflict }: BookingForm
             if (emailError) setEmailError('');
           }}
           error={emailError}
-          required
           maxLength={255}
-          disabled={isSubmitting}
-        />
-
-        {/* Optional Phone */}
-        <Input
-          label={t.booking.phoneLabel}
-          type="tel"
-          placeholder={t.booking.phonePlaceholder}
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          maxLength={30}
           disabled={isSubmitting}
         />
 

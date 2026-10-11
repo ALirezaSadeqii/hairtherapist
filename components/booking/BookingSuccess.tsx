@@ -43,10 +43,21 @@ export function BookingSuccess({ appointment, onBookAnother }: BookingSuccessPro
           <span className="text-[#94847E]">{t.booking.summaryName}:</span>
           <span className="font-medium text-[#2A211D]">{appointment.customerName}</span>
         </div>
-        <div className="flex justify-between items-center text-xs">
-          <span className="text-[#94847E]">{t.booking.summaryEmail}:</span>
-          <span className="font-medium text-[#2A211D]">{appointment.email}</span>
+        <div className="flex justify-between items-center text-xs border-b border-[#EAE0DA] pb-2.5">
+          <span className="text-[#94847E]">{t.booking.summaryPhone}:</span>
+          <span className="font-medium text-[#2A211D]">{appointment.phone}</span>
         </div>
+        {appointment.email ? (
+          <div className="flex justify-between items-center text-xs">
+            <span className="text-[#94847E]">{t.booking.summaryEmail}:</span>
+            <span className="font-medium text-[#2A211D]">{appointment.email}</span>
+          </div>
+        ) : (
+          <div className="flex justify-between items-center text-xs">
+            <span className="text-[#94847E]">{t.booking.summaryEmail}:</span>
+            <span className="text-[#94847E] italic">{t.booking.notProvided}</span>
+          </div>
+        )}
       </div>
 
       {/* Actions */}

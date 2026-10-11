@@ -17,15 +17,16 @@ export interface AvailabilityResponse {
 
 export interface CreateAppointmentDto {
   customerName: string;
-  email: string;
-  phone?: string | null;
+  email?: string | null;
+  phone: string;
   date: string; // YYYY-MM-DD format
 }
 
 export interface PublicAppointmentResponse {
   id: string;
   customerName: string;
-  email: string;
+  email?: string | null;
+  phone: string;
   date: string;
   status: 'CONFIRMED' | 'CANCELLED' | string;
   createdAt: string;
@@ -61,7 +62,7 @@ export interface AdminProfile {
 export interface AdminAppointment {
   id: string;
   customerName: string;
-  email: string;
+  email: string | null;
   phone: string | null;
   date: string; // YYYY-MM-DD format
   status: 'CONFIRMED' | 'CANCELLED';

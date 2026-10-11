@@ -68,7 +68,7 @@ export function CancelConfirmModal({
             {formatDisplayDate(appointment.date, language)}
           </p>
           <p>
-            {appointment.customerName} ({appointment.email})
+            {appointment.customerName} {appointment.phone ? `(${appointment.phone})` : ''} {appointment.email ? `• ${appointment.email}` : ''}
           </p>
         </div>
       </div>

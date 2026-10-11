@@ -84,12 +84,16 @@ export function AppointmentDetailModal({
 
           <div className="py-2.5 flex justify-between">
             <span className="text-[#94847E]">{t.adminDashboard.modalEmail}:</span>
-            <a
-              href={`mailto:${appointment.email}`}
-              className="text-[#C58B80] hover:underline font-mono text-xs"
-            >
-              {appointment.email}
-            </a>
+            {appointment.email ? (
+              <a
+                href={`mailto:${appointment.email}`}
+                className="text-[#C58B80] hover:underline font-mono text-xs"
+              >
+                {appointment.email}
+              </a>
+            ) : (
+              <span className="text-xs text-[#94847E] italic">{t.booking.notProvided}</span>
+            )}
           </div>
 
           <div className="py-2.5 flex justify-between">

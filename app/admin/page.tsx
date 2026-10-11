@@ -161,7 +161,7 @@ export default function AdminDashboardPage() {
       if (searchQuery.trim()) {
         const query = searchQuery.trim().toLowerCase();
         const matchesName = app.customerName.toLowerCase().includes(query);
-        const matchesEmail = app.email.toLowerCase().includes(query);
+        const matchesEmail = app.email ? app.email.toLowerCase().includes(query) : false;
         const matchesPhone = app.phone?.toLowerCase().includes(query) ?? false;
         const matchesDate = app.date.includes(query);
         if (!matchesName && !matchesEmail && !matchesPhone && !matchesDate) {
@@ -461,7 +461,7 @@ export default function AdminDashboardPage() {
                               {app.customerName}
                             </td>
                             <td className="py-3.5 px-4 text-[#6E5F5A] font-mono text-[11px] whitespace-nowrap">
-                              {app.email}
+                              {app.email || <span className="text-[#94847E] italic">{t.booking.notProvided}</span>}
                             </td>
                             <td className="py-3.5 px-4 text-[#94847E] font-mono text-[11px] whitespace-nowrap">
                               {app.phone || '—'}

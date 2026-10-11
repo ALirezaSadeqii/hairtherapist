@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useCallback } from 'react';
+import Image from 'next/image';
 import { useLanguage } from '@/lib/i18n/context';
 import { Header } from '@/components/common/Header';
 import { Footer } from '@/components/common/Footer';
@@ -146,9 +147,9 @@ export default function BookingPage() {
                 </Alert>
               )}
 
-              {/* Grid: Calendar on Left, Booking Form on Right */}
+              {/* Grid: Calendar on Left, Booking Form or Studio Atmosphere on Right */}
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                <div className={`${selectedDate ? 'lg:col-span-7' : 'lg:col-span-12'} transition-all duration-300`}>
+                <div className="lg:col-span-7">
                   <MonthlyCalendar
                     currentMonth={currentMonth}
                     onMonthChange={handleMonthChange}
@@ -166,16 +167,55 @@ export default function BookingPage() {
                   )}
                 </div>
 
-                {/* Form Column appears when date is chosen */}
-                {selectedDate && (
-                  <div className="lg:col-span-5 animate-in fade-in duration-200">
-                    <BookingForm
-                      selectedDate={selectedDate}
-                      onSuccess={handleSuccess}
-                      onConflict={handleConflict}
-                    />
-                  </div>
-                )}
+                {/* Right Column: Form if date chosen, otherwise Studio Experience Card */}
+                <div className="lg:col-span-5">
+                  {selectedDate ? (
+                    <div className="animate-in fade-in duration-200">
+                      <BookingForm
+                        selectedDate={selectedDate}
+                        onSuccess={handleSuccess}
+                        onConflict={handleConflict}
+                      />
+                    </div>
+                  ) : (
+                    <div className="bg-white border border-[#EAE0DA] rounded-2xl overflow-hidden shadow-xs text-start">
+                      <div className="relative h-48 sm:h-56 w-full">
+                        <Image
+                          src="/images/salon-interior.jpg"
+                          alt="Raha Hair Therapist Studio"
+                          fill
+                          className="object-cover"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent pointer-events-none" />
+                        <div className="absolute bottom-3 left-4 right-4 text-white">
+                          <span className="text-[10px] uppercase font-mono tracking-wider font-semibold text-[#E4C5BC] block">
+                            RAHA STUDIO ATMOSPHERE
+                          </span>
+                          <p className="text-sm font-serif font-medium">Bespoke 1-on-1 Consultation</p>
+                        </div>
+                      </div>
+                      <div className="p-6 space-y-3.5 text-xs text-[#6E5F5A]">
+                        <p className="leading-relaxed">
+                          Every consultation is held in our private, tranquil hair studio. We dedicate our full time and attention to your scalp barrier and follicle health.
+                        </p>
+                        <div className="pt-2 border-t border-[#EAE0DA] space-y-2 text-[#94847E]">
+                          <div className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#C58B80]" />
+                            <span>Select any green date from the calendar to book</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#C58B80]" />
+                            <span>Phone number required (format: 523 434 1223)</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#C58B80]" />
+                            <span>No advance payment needed for guest reservations</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           )}

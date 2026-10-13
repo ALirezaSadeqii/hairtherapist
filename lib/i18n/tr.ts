@@ -20,6 +20,8 @@ export const tr: Translations = {
     retry: 'Yeniden Dene',
     backHome: 'Ana Sayfaya Dön',
     language: 'Dil',
+    whatsapp: 'WhatsApp',
+    chatOnWhatsApp: "WhatsApp'tan İletişime Geçin",
   },
   landing: {
     heroBadge: 'Kanıta Dayalı Saç & Saç Derisi Yaklaşımı',
@@ -50,11 +52,13 @@ export const tr: Translations = {
       'Bu platform ve danışmanlık hizmeti tıbbi tanı, teşhis veya tedavi amacı taşımaz. Tıbbi saç ve cilt rahatsızlıklarınız için lütfen öncelikle uzman bir dermatoloğa başvurunuz.',
     contactTitle: 'İletişim & Stüdyo Bilgileri',
     contactSubtitle: 'Bireysel randevularımız stüdyomuzda yüz yüze gerçekleştirilmektedir.',
-    studioNamePlaceholder: 'Raha Hair Therapist Studio (Düzenlenebilir)',
-    addressPlaceholder: 'Bağdat Caddesi No: 182, Kadıköy, İstanbul (Düzenlenebilir)',
+    studioNamePlaceholder: 'Raha Hair Therapist Studio',
+    addressPlaceholder: 'Beylikduzu , Mevlana mah, Aker apt, Kat:1 Daire:6',
     emailPlaceholder: 'info@rahahairtherapist.com',
-    phonePlaceholder: '+90 (212) 555 01 23',
-    hoursPlaceholder: 'Pazartesi – Cumartesi: 10:00 – 19:00 (Pazar Kapalı)',
+    phonePlaceholder: '+90 (543) 698 05 41',
+    whatsappPlaceholder: '+90 (543) 698 05 41',
+    whatsappLabel: 'WhatsApp İletişim',
+    hoursPlaceholder: 'Pazartesi – Cumartesi: 10:00 – 19:00',
   },
   booking: {
     pageTitle: 'Randevu Belirleyin',
@@ -76,7 +80,7 @@ export const tr: Translations = {
     namePlaceholder: 'Örn. Deniz Kaya',
     nameError: 'Lütfen adınızı ve soyadınızı giriniz (en fazla 100 karakter).',
     emailLabel: 'E-posta Adresi (İsteğe bağlı)',
-    emailPlaceholder: 'deniz@example.com (isteğe bağlı)',
+    emailPlaceholder: 'user@example.com (isteğe bağlı)',
     emailError: 'Lütfen geçerli bir e-posta adresi giriniz veya boş bırakınız.',
     phoneLabel: 'Telefon Numarası',
     phonePlaceholder: '523 434 1223',
@@ -97,6 +101,15 @@ export const tr: Translations = {
     notProvided: 'Belirtilmedi',
     bookAnother: 'Yeni Randevu Al',
     noSlotsHelp: 'Bu ayda müsait gün bulunmuyorsa lütfen sonraki ayları inceleyiniz.',
+    whatsappNoticeTitle: 'Randevu Sonrası WhatsApp İletişimi',
+    whatsappNoticeDesc:
+      'Randevunuz kaydedildi. Seans hazırlığı, saç analizi öncesi bilgilendirme ve randevu saat detayları için saç terapistimiz ile WhatsApp üzerinden doğrudan iletişime geçebilirsiniz.',
+    whatsappCta: "WhatsApp'tan Mesaj Gönder",
+    whatsappFormNotice:
+      'Randevu onayınızın ardından, görüşme detayları ve seans hazırlığı için sizinle WhatsApp üzerinden iletişime geçilecektir.',
+    whatsappInfoBadge: 'Bireysel Seans & WhatsApp İletişimi',
+    whatsappInfoDesc:
+      'Randevu sonrasında seans saat teyidi, saç yapısı ön bilgileri ve stüdyo konum tarifi WhatsApp üzerinden saç terapistimiz tarafından sizinle paylaşılacaktır.',
   },
   adminLogin: {
     pageTitle: 'Yönetici Girişi',

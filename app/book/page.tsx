@@ -9,6 +9,7 @@ import { MonthlyCalendar } from '@/components/calendar/MonthlyCalendar';
 import { BookingForm } from '@/components/booking/BookingForm';
 import { BookingSuccess } from '@/components/booking/BookingSuccess';
 import { Alert } from '@/components/ui/Alert';
+import { WhatsAppIcon } from '@/components/common/WhatsAppIcon';
 import { getCurrentMonthString } from '@/lib/date';
 import { getAvailability, ApiError } from '@/lib/api';
 import { DayAvailability, PublicAppointmentResponse } from '@/types/api';
@@ -196,21 +197,33 @@ export default function BookingPage() {
                       </div>
                       <div className="p-6 space-y-3.5 text-xs text-[#6E5F5A]">
                         <p className="leading-relaxed">
-                          Every consultation is held in our private, tranquil hair studio. We dedicate our full time and attention to your scalp barrier and follicle health.
+                          {t.booking.whatsappInfoDesc}
                         </p>
                         <div className="pt-2 border-t border-[#EAE0DA] space-y-2 text-[#94847E]">
                           <div className="flex items-center gap-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#C58B80]" />
-                            <span>Select any green date from the calendar to book</span>
+                            <span>{t.booking.whatsappInfoBadge}</span>
                           </div>
                           <div className="flex items-center gap-2">
                             <span className="w-1.5 h-1.5 rounded-full bg-[#C58B80]" />
-                            <span>Phone number required (format: 523 434 1223)</span>
+                            <span>{t.booking.phoneLabel}: <bdi dir="ltr" className="font-mono">523 434 1223</bdi></span>
                           </div>
-                          <div className="flex items-center gap-2">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#C58B80]" />
-                            <span>No advance payment needed for guest reservations</span>
-                          </div>
+                        </div>
+
+                        {/* Direct WhatsApp Quick Contact */}
+                        <div className="pt-3 border-t border-[#EAE0DA]">
+                          <a
+                            href="https://wa.me/905436980541"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-2 text-[#166534] hover:text-[#25D366] transition-colors font-medium"
+                          >
+                            <span className="w-6 h-6 rounded-full bg-[#25D366] text-white flex items-center justify-center shrink-0">
+                              <WhatsAppIcon className="w-3.5 h-3.5" />
+                            </span>
+                            <span>{t.common.chatOnWhatsApp}:</span>
+                            <bdi dir="ltr" className="font-mono font-medium">+90 (543) 698 05 41</bdi>
+                          </a>
                         </div>
                       </div>
                     </div>

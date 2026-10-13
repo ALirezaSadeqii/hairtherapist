@@ -20,6 +20,8 @@ export const fa: Translations = {
     retry: 'تلاش مجدد',
     backHome: 'بازگشت به صفحه اصلی',
     language: 'زبان',
+    whatsapp: 'واتس‌اپ',
+    chatOnWhatsApp: 'ارتباط مستقیم در واتس‌اپ',
   },
   landing: {
     heroBadge: 'رویکرد مبتنی بر شواهد علمی به مراقبت مو',
@@ -50,11 +52,13 @@ export const fa: Translations = {
       'این پایگاه و خدمات مشاوره آن، جایگزین خدمات تشخیصی یا درمانی پزشکی نیست. در صورت ابتلا به بیماری‌های پوستی یا ریزش‌های حاد، به پزشک متخصص پوست مراجعه فرمایید.',
     contactTitle: 'مشخصات استودیو و راه‌های ارتباطی',
     contactSubtitle: 'کلیه جلسات به صورت حضوری و با هماهنگی قبلی برگزار می‌شود.',
-    studioNamePlaceholder: 'استودیو رها تراپیست مو (عنوان قابل ویرایش)',
-    addressPlaceholder: 'تهران، خیابان ولیعصر، بالاتر از پارک وی (آدرس قابل ویرایش)',
+    studioNamePlaceholder: 'Raha Hair Therapist Studio',
+    addressPlaceholder: 'Beylikduzu , Mevlana mah, Aker apt, Kat:1 Daire:6',
     emailPlaceholder: 'info@rahahairtherapist.com',
-    phonePlaceholder: '+۹۸ (۲۱) ۲۲۰۰ ۰۰۰۰',
-    hoursPlaceholder: 'شنبه تا چهارشنبه: ۱۰:۰۰ الی ۱۹:۰۰ (پنج‌شنبه‌ها تا ۱۴:۰۰)',
+    phonePlaceholder: '+90 (543) 698 05 41',
+    whatsappPlaceholder: '+90 (543) 698 05 41',
+    whatsappLabel: 'ارتباط در واتس‌اپ',
+    hoursPlaceholder: 'دوشنبه تا شنبه: ۱۰:۰۰ تا ۱۹:۰۰',
   },
   booking: {
     pageTitle: 'رزرو نوبت مشاوره',
@@ -97,6 +101,15 @@ export const fa: Translations = {
     notProvided: 'ثبت نشده',
     bookAnother: 'رزرو نوبت جدید',
     noSlotsHelp: 'در صورت عدم وجود تاریخ خالی در این ماه، ماه‌های بعدی را بررسی فرمایید.',
+    whatsappNoticeTitle: 'هماهنگی و مشاوره در واتس‌اپ',
+    whatsappNoticeDesc:
+      'نوبت شما با موفقیت ثبت شد. جهت هماهنگی نهایی، آمادگی‌های قبل از جلسه و هماهنگی ساعات، ادامه گفتگو و ارتباط از طریق واتس‌اپ با تراپیست مو انجام خواهد شد.',
+    whatsappCta: 'ارسال پیام در واتس‌اپ',
+    whatsappFormNotice:
+      'پس از ثبت نوبت، هماهنگی‌های مربوط به زمان دقیق و جزئیات جلسه از طریق واتس‌اپ با تراپیست انجام خواهد شد.',
+    whatsappInfoBadge: 'جلسه اختصاصی و هماهنگی در واتس‌اپ',
+    whatsappInfoDesc:
+      'پس از رزرو نوبت، هماهنگی نهایی ساعت، راهنمای آمادگی برای آنالیز مو و لوکیشن دقیق استودیو از طریق واتس‌اپ برای شما ارسال می‌شود.',
   },
   adminLogin: {
     pageTitle: 'ورود مدیر سیستم',

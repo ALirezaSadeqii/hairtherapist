@@ -171,7 +171,7 @@ export function BookingForm({ selectedDate, onSuccess, onConflict }: BookingForm
         />
 
         {/* Submit CTA */}
-        <div className="pt-2">
+        <div className="pt-2 space-y-2.5">
           <Button
             type="submit"
             variant="primary"
@@ -182,6 +182,9 @@ export function BookingForm({ selectedDate, onSuccess, onConflict }: BookingForm
           >
             {isSubmitting ? t.booking.submitting : t.booking.submitButton}
           </Button>
+          <p className="text-[11px] text-[#94847E] text-center leading-relaxed">
+            💬 {t.booking.whatsappFormNotice}
+          </p>
         </div>
       </form>
     </div>

@@ -22,6 +22,8 @@ export interface Translations {
     retry: string;
     backHome: string;
     language: string;
+    whatsapp: string;
+    chatOnWhatsApp: string;
   };
   landing: {
     heroBadge: string;
@@ -49,6 +51,8 @@ export interface Translations {
     addressPlaceholder: string;
     emailPlaceholder: string;
     phonePlaceholder: string;
+    whatsappPlaceholder: string;
+    whatsappLabel: string;
     hoursPlaceholder: string;
   };
   booking: {
@@ -88,6 +92,12 @@ export interface Translations {
     notProvided: string;
     bookAnother: string;
     noSlotsHelp: string;
+    whatsappNoticeTitle: string;
+    whatsappNoticeDesc: string;
+    whatsappCta: string;
+    whatsappFormNotice: string;
+    whatsappInfoBadge: string;
+    whatsappInfoDesc: string;
   };
   adminLogin: {
     pageTitle: string;

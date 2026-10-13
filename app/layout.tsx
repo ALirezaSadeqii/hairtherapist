@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Geist, Vazirmatn } from 'next/font/google';
 import './globals.css';
 import { LanguageProvider } from '@/lib/i18n/context';
+import { WhatsAppButton } from '@/components/common/WhatsAppButton';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-[#FAF6F3] text-[#2A211D] selection:bg-[#EBD6D0]">
         <LanguageProvider>
           {children}
+          <WhatsAppButton />
         </LanguageProvider>
       </body>
     </html>

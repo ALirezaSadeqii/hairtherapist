@@ -39,6 +39,14 @@ async function request<T>(
     headers.set('Content-Type', 'application/json');
   }
 
+  // Include Bearer token from localStorage for cross-origin/cross-site reliability
+  if (typeof window !== 'undefined' && !headers.has('Authorization')) {
+    const token = localStorage.getItem('admin_token');
+    if (token) {
+      headers.set('Authorization', `Bearer ${token}`);
+    }
+  }
+
   const config: RequestInit = {
     ...options,
     headers,
@@ -55,6 +63,11 @@ async function request<T>(
   }
 
   if (!response.ok) {
+    // Purge local storage token on 401 Unauthorized
+    if (response.status === 401 && typeof window !== 'undefined') {
+      localStorage.removeItem('admin_token');
+    }
+
     let errorData: ApiErrorResponse | null = null;
     let fallbackText = '';
     try {
@@ -127,22 +140,34 @@ export async function createAppointment(
 // ============================================================================
 
 /**
- * Administrator login with email & password. Sets HTTP-only cookie in backend.
+ * Administrator login with email & password. Sets HTTP-only cookie in backend and saves token.
  */
 export async function login(dto: LoginDto): Promise<LoginResponse> {
-  return request<LoginResponse>('/auth/login', {
+  const data = await request<LoginResponse>('/auth/login', {
     method: 'POST',
     body: JSON.stringify(dto),
   });
+
+  if (typeof window !== 'undefined' && data?.token) {
+    localStorage.setItem('admin_token', data.token);
+  }
+
+  return data;
 }
 
 /**
- * Administrator logout. Clears session cookie on the backend.
+ * Administrator logout. Clears session cookie on backend and removes stored token.
  */
 export async function logout(): Promise<{ message: string }> {
-  return request<{ message: string }>('/auth/logout', {
-    method: 'POST',
-  });
+  try {
+    return await request<{ message: string }>('/auth/logout', {
+      method: 'POST',
+    });
+  } finally {
+    if (typeof window !== 'undefined') {
+      localStorage.removeItem('admin_token');
+    }
+  }
 }
 
 /**
